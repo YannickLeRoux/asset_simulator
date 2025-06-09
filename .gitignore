@@ -1,0 +1,56 @@
+# Rust build artifacts
+target/
+Cargo.lock
+
+# Debug and release builds
+debug/
+release/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+simulator.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Python cache (for test scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Local configuration files
+.env
+.env.local
+
+# Backup files
+*.bak
+*_backup
+*_old
+*_new
+
+# Test coverage
+tarpaulin-report.html

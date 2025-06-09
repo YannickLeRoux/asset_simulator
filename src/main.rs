@@ -13,7 +13,7 @@ use modbus_server::ModbusServer;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     env_logger::init();
-
+    
     let matches = Command::new("Asset Simulator")
         .version("0.1.0")
         .about("Virtual electric meter simulator with Modbus support")
@@ -37,21 +37,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let port: u16 = matches.get_one::<String>("port").unwrap().parse()?;
     let address = matches.get_one::<String>("address").unwrap();
-
+    
     // Create electric meter
     let meter = Arc::new(RwLock::new(Meter::new(MeterType::Electric)));
-
+    
     info!("Starting electric meter simulator...");
     info!("Modbus TCP server will start on {}:{}", address, port);
-
+    
     // Clone meter for the update task
     let meter_clone = meter.clone();
-
+    
     // Start meter update task
     tokio::spawn(async move {
         let meter = meter_clone;
         let mut interval = interval(Duration::from_millis(1000));
-
+        
         loop {
             interval.tick().await;
             {
@@ -60,10 +60,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
     });
-
+    
     // Start Modbus server
     let modbus_server = ModbusServer::new(meter);
     modbus_server.start(address, port).await?;
-
+    
     Ok(())
 }
