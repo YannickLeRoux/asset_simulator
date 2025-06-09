@@ -1,0 +1,27 @@
+warning: associated function `from_str` is never used
+  --> src/meter.rs:10:12
+   |
+9  | impl MeterType {
+   | -------------- associated function in this implementation
+10 |     pub fn from_str(s:...
+   |            ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: `asset_simulator` (bin "asset_simulator") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `target/debug/asset_simulator`
+[2025-06-09T02:20:20Z INFO  asset_simulator] Starting electric meter simulator...
+[2025-06-09T02:20:20Z INFO  asset_simulator] Modbus TCP server will start on 127.0.0.1:5020
+[2025-06-09T02:20:20Z INFO  asset_simulator::modbus_server] Modbus TCP server started on 127.0.0.1:5020
+[2025-06-09T02:21:48Z INFO  asset_simulator::modbus_server] New client connection from: 127.0.0.1:51970
+[2025-06-09T02:21:48Z INFO  asset_simulator::modbus_server] Client disconnected
+[2025-06-09T02:22:14Z INFO  asset_simulator::modbus_server] New client connection from: 127.0.0.1:51981
+[2025-06-09T02:22:14Z INFO  asset_simulator::modbus_server] Client disconnected
+[2025-06-09T02:22:37Z INFO  asset_simulator::modbus_server] New client connection from: 127.0.0.1:51987
+[2025-06-09T02:22:37Z INFO  asset_simulator::modbus_server] Client disconnected
+[2025-06-09T02:31:59Z INFO  asset_simulator::modbus_server] New client connection from: 127.0.0.1:52105
+[2025-06-09T02:31:59Z INFO  asset_simulator::modbus_server] Client disconnected
+[2025-06-09T02:32:43Z INFO  asset_simulator::modbus_server] New client connection from: 127.0.0.1:52111
+Meter reset command received
+[2025-06-09T02:32:47Z INFO  asset_simulator::modbus_server] Client disconnected
